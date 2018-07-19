@@ -24,3 +24,30 @@
   第六列表示文件的创建或者最近修改的日期
  
   第七列表示该文件的文件名
+
+- chgrp命令:修改文件所属用户组
+
+  命令格式:chgrp [-R] 组名 dirname/filename
+  
+  例:
+    chgrp users install.log 
+
+- chown:改变文件所有者
+
+  命令格式:
+    
+    chown [-R] 账号名称 文件或目录
+    
+    例:
+      chown bin install.log
+      
+ - chmod:更改权限
+ 
+  命令格式
+  
+   chmod [-R] xyz 文件/目录
+    
+   xyz的含义和之前提到的文件类型有关：rwx为一组，r是数字4，w是数字2，x是数字1，权限组合即使：r+w+x
+   例如：rwxrw-r-x对应的值就是:765
+    
+    
