@@ -62,7 +62,7 @@
     
  - 命令开启端口：
     
-    1. 开放端口命令： /sbin/iptables -I INPUT -p tcp --dport 8080 -j ACCEPT
+    1.开放端口命令： /sbin/iptables -I INPUT -p tcp --dport 8080 -j ACCEPT
 
     2.保存：    /etc/rc.d/init.d/iptables save
 
