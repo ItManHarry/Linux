@@ -74,19 +74,19 @@
  
     - 编辑iptables文件：
      
-      vi /etc/sysconfig/iptables
+        vi /etc/sysconfig/iptables
     
     - 在 -A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT 后面添加如下内容：
     
-      -A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT
+        -A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT
      
     - 修改完保存退出，重启网卡服务：
     
-      service iptables restart
+        service iptables restart
       
      - 查看端口开放信息：
      
-      service iptables status
+        service iptables status
       
 - 起/停防火墙
 
