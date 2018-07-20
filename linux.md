@@ -101,3 +101,19 @@
   - 查看防火墙状态：
   
       service iptables status
+      
+- 设置网卡信息(root用户)
+
+  - 网卡信息存放在/etc/sysconfig/network-scripts下
+  
+    cd /etc/sysconfig/network-scripts
+    
+  - 编辑网卡信息
+  
+     vi ifcfg-eth0
+     
+     修改完成后，保存退出
+     
+  - 重启网卡服务
+  
+    service network restart
