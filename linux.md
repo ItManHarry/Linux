@@ -70,3 +70,34 @@
 
     4.查看端口是否开放：/sbin/iptables -L -n
     
+ - 修改文件开启端口
+ 
+    - 编辑iptables文件：
+     
+      vi /etc/sysconfig/iptables
+    
+    - 在 -A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT 后面添加如下内容：
+    
+      -A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT
+     
+    - 修改完保存退出，重启网卡服务：
+    
+      service iptables restart
+      
+     - 查看端口开放信息：
+     
+      service iptables status
+      
+- 起/停防火墙
+
+  - 命令临时启停：
+      
+      service iptables start/stop
+      
+  - 命令永久启停：
+  
+      chkconfig iptables on/off
+      
+  - 查看防火墙状态：
+  
+      service iptables status
