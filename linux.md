@@ -50,4 +50,23 @@
     xyz的含义和之前提到的文件类型有关：rwx为一组，r是数字4，w是数字2，x是数字1，权限组合即使：r+w+x
     例如：rwxrw-r-x对应的值就是:765
     
+# 网络命令
+
+- 查看端口是否开启
+
+  lsof命令：lsof -i:portNumber
+  
+  例：
+    lsof -i:2888
+    如果有输出，说明该端口已开放，否则就是没有开放。
+    
+  命令开启端口：
+    
+    1. 开放端口命令： /sbin/iptables -I INPUT -p tcp --dport 8080 -j ACCEPT
+
+    2.保存：    /etc/rc.d/init.d/iptables save
+
+    3.重启服务：/etc/init.d/iptables restart
+
+    4.查看端口是否开放：/sbin/iptables -L -n
     
