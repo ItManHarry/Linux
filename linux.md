@@ -60,7 +60,7 @@
     lsof -i:2888
     如果有输出，说明该端口已开放，否则就是没有开放。
     
-  命令开启端口：
+ - 命令开启端口：
     
     1. 开放端口命令： /sbin/iptables -I INPUT -p tcp --dport 8080 -j ACCEPT
 
