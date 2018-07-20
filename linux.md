@@ -112,6 +112,24 @@
   
      vi ifcfg-eth0
      
+     修改后的文件内容：
+     
+      DEVICE=eth0
+      TYPE=Ethernet
+      UUID=902998d3-1dd7-4843-9b22-d7ab56a4144b
+      ONBOOT=yes          //默认为no，修改为yes
+      NM_CONTROLLED=yes
+      BOOTPROTO=none      //默认为dhcp，修改为none或者static
+      HWADDR=08:00:27:62:08:61
+      IPADDR=10.40.123.200 //填写IP地址
+      PREFIX=24
+      GATEWAY=10.40.123.254 //填写网关
+      DNS1=10.40.128.21     //填写DNS
+      DEFROUTE=yes
+      IPV4_FAILURE_FATAL=yes
+      IPV6INIT=no
+      NAME="System eth0"
+     
      修改完成后，保存退出
      
   - 重启网卡服务
