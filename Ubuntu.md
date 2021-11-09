@@ -143,3 +143,35 @@ Permission denied (publickey). 则说明可以连接
 	Hi 你的用户名! You’ve successfully authenticated, but GitHub does not provide shell access.
 	
 	5.5. 正常使用git即可
+	
+6. 安装sqlite3
+	
+	使用以下命令安装即可
+```
+	sudo apt-get install sqlite3
+```
+
+	输入命令：sqlite3 -help，显示以下内容，则安装成功，可以输入sqlite3 -version查看版本信息
+	
+7. 安装配置MySQL
+
+	7.1. 安装MySQL
+	
+```
+	sudo apt-get install mysql-server
+	apt-get isntall mysql-client
+	sudo apt-get install libmysqlclient-dev
+```
+
+	7.2. 安装之后可以直接使用MySQL的root用户免密登录进入MySQL: mysql -u root -p-u 代表登录的用户名 -p表示登录的密码
+上面的命令回车之后会提示输入密码，Enter password
+不输入内容，直接回车，这样就免密登录进去mysql了。
+
+注：这里需要注意的是，登录mysql时如果输入上面的命令行，无法免密登录进入mysql,那么尝试命令前面加上sudo ,如下
+sudo mysql -u root -p
+
+	7.3. 刚安装的时候，我的root的plugin字段的值是：auth_socket
+plugin是插件的意思，把插件修改为mysql本地的：mysql-native-password
+update user set plugin='mysql_native_password' where user='root';
+root的初始authentication_string字段为空，更改密码操作如下：执行下面的SQL语句把root的登录密码改为123456。
+update user set authentication_string=password('123456') where user='root';
