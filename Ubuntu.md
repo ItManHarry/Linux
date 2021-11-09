@@ -64,3 +64,32 @@
 ```
 	nohup pycharm &
 ```
+
+4. 安装配置SSH
+
+	4.1. 查看ssh是否安装(默认只安装了openssh-client)
+	
+```
+	dpkg -l|grep ssh
+```
+	
+	4.2. 安装server
+	
+```
+	sudo apt install openssh-server
+```
+
+	4.3. 查看ssh服务是否启动
+	
+```
+	ps -ef|grep ssh
+```
+	看到sshd证明ssh服务已启动
+	
+	4.4. ssh-server配置文件位于/etc/ssh/sshd_config，在这里可以定义SSH的服务端口，默认端口是22，你可以自己定义
+	成其他端口号，如222。（或把配置文件中的”PermitRootLogin without-password”加一个”#”号,把它注释掉，再增
+	加一句”PermitRootLogin yes”），然后重启SSH服务：
+```
+	sudo /etc/init.d/ssh stop
+	sudo /etc/init.d/ssh start
+```
