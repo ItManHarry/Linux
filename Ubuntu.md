@@ -93,3 +93,53 @@
 	sudo /etc/init.d/ssh stop
 	sudo /etc/init.d/ssh start
 ```
+
+5. 安装配置Git
+
+	5.1. 使用命令安装
+	
+```
+	# 查看系统是否已安装git
+	apt list git
+	# 没有安装，执行安装
+	sudo apt install git
+```
+
+	5.2. 检查SSH	
+	
+```
+	ssh -T git@github.com
+```
+
+	如果看到：Warning: Permanently added ‘github.com,204.232.175.90’ (RSA) to the list of known hosts.
+Permission denied (publickey). 则说明可以连接
+
+	5.3. 安装ssh keys	
+	
+		a. 检查是否有ssh keys		
+		
+```
+	cd ~/.ssh
+	ls
+```
+
+		b. 如果没有id_rsa和id_ras.pub这两个文件，说明没有ssh keys，执行生成
+		
+```
+	ssh-keygen -t rsa -C "GitHub的邮箱地址"
+```
+
+		注：1. ""一定要有 2. 一定要在.ssh目录下执行， 命令执行过程中一路回车即可
+	
+	5.4. 将ssh keys添加到GitHub
+	
+	（1）利用gedit/cat命令，查看id_rsa.pub的内容
+	（2）在GitHub中，依次点击Settings -> SSH Keys -> Add SSH Key，将id_rsa.pub文件中的字符串复制进去，注意字符串中没有换行和空格。
+	再次执行：
+```
+	ssh -T git@github.com
+```
+	如果看到如下所示，则表示添加成功：
+	Hi 你的用户名! You’ve successfully authenticated, but GitHub does not provide shell access.
+	
+	5.5. 正常使用git即可
